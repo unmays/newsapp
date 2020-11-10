@@ -7,7 +7,7 @@ import com.khoofiya.realnews.base.models.BaseRepository
 open class BaseViewModel(private val dataManager: DataManager) : ViewModel() {
 
     private var repository =
-        BaseRepository(dataManager.getRetrofitController(), dataManager.getRealm())
+        BaseRepository(dataManager)
 
     fun testAPICall() {
         repository.tesAPICall()

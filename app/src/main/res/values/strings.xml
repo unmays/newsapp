@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Real News</string>
+    <string name="splash_text">Real News</string>
 </resources>

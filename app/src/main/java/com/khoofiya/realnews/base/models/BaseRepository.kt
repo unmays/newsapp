@@ -1,17 +1,18 @@
 package com.khoofiya.realnews.base.models
 
 import android.util.Log
+import com.khoofiya.realnews.base.datamanager.DataManager
 import com.khoofiya.realnews.base.networking.RetrofitController
 import io.realm.Realm
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BaseRepository(retrofitController: RetrofitController, realm: Realm) {
+open class BaseRepository(private val dataManager: DataManager) {
 
-    protected var mRetrofitController: RetrofitController = retrofitController
+    protected var mRetrofitController: RetrofitController = dataManager.getRetrofitController()
 
-    protected var mRealm: Realm = realm
+    protected var mRealm: Realm = dataManager.getRealm()
 
     protected fun <T> executeRequest(
         requestCall: Call<T>?,
