@@ -34,7 +34,7 @@ class BaseRepository(retrofitController: RetrofitController, realm: Realm) {
     }
 
     fun tesAPICall() {
-        executeRequest(mRetrofitController.apis?.getAllArticles(),
+        executeRequest(mRetrofitController.apis?.getSources(),
             {
                 Log.d("tesAPICall", "Success Response:\n$it")
             },
