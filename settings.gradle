@@ -1,2 +1,2 @@
-include ':app'/*, 'onl-android-base-module'*/
+include ':app'
 rootProject.name = "Real News"

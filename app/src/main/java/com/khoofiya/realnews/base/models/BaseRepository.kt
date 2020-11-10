@@ -2,26 +2,16 @@ package com.khoofiya.realnews.base.models
 
 import android.util.Log
 import com.khoofiya.realnews.base.networking.RetrofitController
-import com.khoofiya.realnews.di.annotations.AnnotateRealm
-import com.khoofiya.realnews.di.annotations.AnnotateRetrofitController
 import io.realm.Realm
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BaseRepository {
+class BaseRepository(retrofitController: RetrofitController, realm: Realm) {
 
-    /*@Inject*/
-    protected var mRetrofitController: RetrofitController
+    protected var mRetrofitController: RetrofitController = retrofitController
 
-    /*@Inject*/
-    protected var mRealm: Realm
-
-    /*@Inject*/
-    constructor(@AnnotateRetrofitController retrofitController: RetrofitController, @AnnotateRealm realm: Realm) {
-        mRetrofitController = retrofitController
-        mRealm = realm
-    }
+    protected var mRealm: Realm = realm
 
     protected fun <T> executeRequest(
         requestCall: Call<T>?,

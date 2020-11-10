@@ -2,34 +2,36 @@ package com.khoofiya.realnews.di.modules
 
 import android.app.Application
 import android.content.Context
-import android.content.SharedPreferences
+import com.khoofiya.realnews.base.datamanager.DataManager
 import com.khoofiya.realnews.base.networking.RetrofitController
-import com.khoofiya.realnews.di.annotations.AnnotateRealm
-import com.khoofiya.realnews.di.annotations.AnnotateRetrofitController
-import com.khoofiya.realnews.di.annotations.SharedPrefs
+import com.khoofiya.realnews.utils.SharedPreferencesUtil
 import dagger.Module
 import dagger.Provides
 import io.realm.Realm
+import javax.inject.Singleton
 
 @Module
-class ApplicationModule(private val application: Application) {
+class ApplicationModule {
+
+    /*@Inject
+    internal lateinit var application: Application*/
 
     @Provides
-    @SharedPrefs
-    fun provideSharedPreferences(): SharedPreferences {
-        return application.getSharedPreferences("real-news-shared-pref", Context.MODE_PRIVATE)
-    }
+    @Singleton
+    fun provideDataManager(application: Application) = DataManager(
+        provideRetrofitController(),
+        provideRealm(),
+        SharedPreferencesUtil(provideSharedPreferences(application))
+    )
 
-    @Provides
-    @AnnotateRetrofitController
-    fun provideRetrofitController(): RetrofitController {
-        return RetrofitController.getInstance("https://newsapi.org")
-    }
+    @Singleton
+    private fun provideSharedPreferences(application: Application) =
+        application.getSharedPreferences("real-news-shared-pref", Context.MODE_PRIVATE)
 
-    @Provides
-    @AnnotateRealm
-    fun provideRealm(): Realm {
-        return Realm.getDefaultInstance()
-    }
+    @Singleton
+    private fun provideRetrofitController() = RetrofitController.getInstance("https://newsapi.org")
+
+    @Singleton
+    private fun provideRealm() = Realm.getDefaultInstance()
 
 }

@@ -1,13 +1,13 @@
 package com.khoofiya.realnews.base.viewModels
 
 import androidx.lifecycle.ViewModel
+import com.khoofiya.realnews.base.datamanager.DataManager
 import com.khoofiya.realnews.base.models.BaseRepository
-import javax.inject.Inject
 
-class BaseViewModel : ViewModel() {
+open class BaseViewModel(private val dataManager: DataManager) : ViewModel() {
 
-    @Inject
-    protected lateinit var repository: BaseRepository
+    private var repository =
+        BaseRepository(dataManager.getRetrofitController(), dataManager.getRealm())
 
     fun testAPICall() {
         repository.tesAPICall()
