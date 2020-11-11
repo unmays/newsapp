@@ -13,7 +13,7 @@ class AllNewsViewModel(dataManager: DataManager) : BaseViewModel(dataManager = d
     private lateinit var articles: MutableLiveData<List<Article>?>
 
     fun getAllNews(): MutableLiveData<List<Article>?> {
-        articles = sourcesRepository.getAllNews()
+        articles = sourcesRepository.getAllNews(q = "(agriculture OR agri) AND (technology OR tech)")
         return articles
     }
 

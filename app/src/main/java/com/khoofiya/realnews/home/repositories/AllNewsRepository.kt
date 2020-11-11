@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.khoofiya.realnews.base.datamanager.DataManager
 import com.khoofiya.realnews.base.models.BaseRepository
 import com.khoofiya.realnews.pojos.Article
-import com.khoofiya.realnews.pojos.Source
 import com.khoofiya.realnews.utils.STATUS_OK
 import io.realm.ImportFlag
 
@@ -14,9 +13,33 @@ class AllNewsRepository(private val dataManager: DataManager) :
 
     private val articles: MutableLiveData<List<Article>?> = MutableLiveData()
 
-    fun getAllNews(): MutableLiveData<List<Article>?> {
+    fun getAllNews(
+        page: Int? = 1,
+        q: String? = null,
+        qInTitle: String? = null,
+        sources: String? = null,
+        domains: String? = null,
+        excludeDomains: String? = null,
+        from: String? = null,
+        to: String? = null,
+        language: String? = null,
+        sortBy: String? = null,
+        pageSize: Int? = null
+    ): MutableLiveData<List<Article>?> {
         getArticlesFromLocal()
-        executeRequest(mRetrofitController.apis?.getEverything(),
+        executeRequest(mRetrofitController.apis?.getEverything(
+            page = page,
+            q = q,
+            qInTitle = qInTitle,
+            sources = sources,
+            domains = domains,
+            excludeDomains = excludeDomains,
+            from = from,
+            to = to,
+            language = language,
+            sortBy = sortBy,
+            pageSize = pageSize
+        ),
             {
                 if (it?.status == STATUS_OK) {
                     articles.value = it.articles

@@ -33,4 +33,31 @@
         <item name="layout_constraintTop_creator">1</item>
     </style>
 
+    <style name="ArticleListItemTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="ArticleListItemTitleStyle" parent="ArticleListItemTextStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ArticleListItemDescriptionStyle" parent="ArticleListItemTextStyle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ArticleListItemFooterStyle" parent="ArticleListItemTextStyle">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TabRecyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
 </resources>

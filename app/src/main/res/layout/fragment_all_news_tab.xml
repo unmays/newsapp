@@ -6,9 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".home.views.fragments.SourcesTabFragment">
 
-    <TextView
-        android:id="@+id/section_label"
-        style="@style/HomeTabHeaderStyle"
-        android:text="@string/all_news_header" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allNewsRV"
+        style="@style/TabRecyclerViewStyle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

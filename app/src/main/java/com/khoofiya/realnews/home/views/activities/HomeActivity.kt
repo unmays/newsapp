@@ -1,14 +1,11 @@
 package com.khoofiya.realnews.home.views.activities
 
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.Observer
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
 import com.khoofiya.realnews.R
 import com.khoofiya.realnews.base.views.BaseActivity
-import com.khoofiya.realnews.home.views.adapters.HomeTabsPagerAdapter
 import com.khoofiya.realnews.home.viewModels.HomeViewModel
+import com.khoofiya.realnews.home.views.adapters.HomeTabsPagerAdapter
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
 
@@ -16,26 +13,19 @@ class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_tabbed)
+        setContentView(R.layout.activity_home)
         val sectionsPagerAdapter =
             HomeTabsPagerAdapter(
                 this,
                 supportFragmentManager
             )
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
+        homeViewPager.adapter = sectionsPagerAdapter
+        tabs.setupWithViewPager(homeViewPager)
         initData()
     }
 
     private fun initData() {
         mViewModel = createViewModel(HomeViewModel::class.java)
-        mViewModel?.getSources()?.observe(this,
-            Observer {
-                Log.d(this::getLocalClassName.toString(), "Sources size = ${it?.size}")
-            }
-        )
     }
 
 }
