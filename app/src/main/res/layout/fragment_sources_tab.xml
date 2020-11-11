@@ -6,4 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".home.views.fragments.SourcesTabFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sourcesRV"
+        style="@style/TabRecyclerViewStyle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

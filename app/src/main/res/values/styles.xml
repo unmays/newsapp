@@ -33,24 +33,31 @@
         <item name="layout_constraintTop_creator">1</item>
     </style>
 
-    <style name="ArticleListItemTextStyle">
+    <style name="ListItemTextBaseStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@android:color/primary_text_light</item>
         <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_marginTop">@dimen/half_margin</item>
     </style>
 
-    <style name="ArticleListItemTitleStyle" parent="ArticleListItemTextStyle">
+    <style name="ArticleListItemTextBaseStyle" parent="ListItemTextBaseStyle" />
+
+    <style name="ArticleListItemTitleStyle" parent="ArticleListItemTextBaseStyle">
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="ArticleListItemDescriptionStyle" parent="ArticleListItemTextStyle">
+    <style name="ArticleListItemDescriptionStyle" parent="ArticleListItemTextBaseStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ArticleListItemFooterStyle" parent="ArticleListItemTextBaseStyle">
         <item name="android:textSize">12sp</item>
-    </style>
-
-    <style name="ArticleListItemFooterStyle" parent="ArticleListItemTextStyle">
-        <item name="android:textSize">10sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="TabRecyclerViewStyle">
@@ -58,6 +65,19 @@
         <item name="android:layout_height">match_parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="SourceListItemTextBaseStyle" parent="ListItemTextBaseStyle" />
+
+    <style name="SourceListItemNameStyle" parent="SourceListItemTextBaseStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SourceListItemDescStyle" parent="SourceListItemTextBaseStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
 </resources>
