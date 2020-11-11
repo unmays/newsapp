@@ -1,4 +1,4 @@
-package com.khoofiya.realnews.home.views.adapters
+package com.khoofiya.realnews.sourceheadlines.views.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +9,8 @@ import com.khoofiya.realnews.R
 import com.khoofiya.realnews.pojos.Article
 import kotlinx.android.synthetic.main.article_view_item.view.*
 
-class AllNewsAdapter(var articles: List<Article>, val onClick: (article: Article) -> Unit) :
-    RecyclerView.Adapter<AllNewsAdapter.ViewHolder>() {
+class TopHeadlinesAdapter(var articles: List<Article>, val onClick: (article: Article) -> Unit) :
+    RecyclerView.Adapter<TopHeadlinesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(

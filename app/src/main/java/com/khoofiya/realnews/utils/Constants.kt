@@ -1,2 +1,3 @@
 package com.khoofiya.realnews.utils
 val STATUS_OK = "ok"
+val EXTRA_PARAMS_SOURCE_ID = "sourceId"

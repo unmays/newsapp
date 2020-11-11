@@ -30,4 +30,14 @@ interface Apis {
         @Query("country") country: String? = null
     ): Call<SourcesResponse>
 
+    @GET("v2/top-headlines")
+    fun getTopHeadlines(
+        @Query("page") page: Int? = 1,
+        @Query("q") q: String? = null,
+        @Query("category") category: String? = null,
+        @Query("sources") sources: String? = null,
+        @Query("country") country: String? = null,
+        @Query("pageSize") pageSize: Int? = null
+    ): Call<ArticlesResponse>
+
 }

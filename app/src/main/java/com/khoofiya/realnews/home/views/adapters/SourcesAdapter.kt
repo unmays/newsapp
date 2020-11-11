@@ -8,7 +8,7 @@ import com.khoofiya.realnews.R
 import com.khoofiya.realnews.pojos.Source
 import kotlinx.android.synthetic.main.source_view_item.view.*
 
-class SourcesAdapter(var sources: List<Source>) :
+class SourcesAdapter(var sources: List<Source>, val onClick: (source: Source) -> Unit) :
     RecyclerView.Adapter<SourcesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,6 +30,9 @@ class SourcesAdapter(var sources: List<Source>) :
         viewHolder.itemView.run {
             sourceName.text = source.name
             sourceDescription.text = source.description
+            setOnClickListener {
+                onClick.invoke(source)
+            }
         }
     }
 

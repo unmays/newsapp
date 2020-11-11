@@ -1,5 +1,6 @@
 package com.khoofiya.realnews.home.views.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import com.khoofiya.realnews.R
 import com.khoofiya.realnews.base.views.BaseFragment
 import com.khoofiya.realnews.home.viewModels.SourcesViewModel
 import com.khoofiya.realnews.home.views.adapters.SourcesAdapter
+import com.khoofiya.realnews.sourceheadlines.views.activities.TopHeadlinesActivity
+import com.khoofiya.realnews.utils.EXTRA_PARAMS_SOURCE_ID
 import kotlinx.android.synthetic.main.fragment_sources_tab.*
 
 class SourcesTabFragment : BaseFragment() {
@@ -30,7 +33,11 @@ class SourcesTabFragment : BaseFragment() {
             Observer { sources ->
                 sources?.let {
                     if (sourcesRV.adapter == null) {
-                        sourcesRV.adapter = SourcesAdapter(it)
+                        sourcesRV.adapter = SourcesAdapter(it) {
+                            startActivity(Intent(activity, TopHeadlinesActivity::class.java).apply {
+                                putExtra(EXTRA_PARAMS_SOURCE_ID, it.id)
+                            })
+                        }
                         sourcesRV.layoutManager =
                             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     } else {

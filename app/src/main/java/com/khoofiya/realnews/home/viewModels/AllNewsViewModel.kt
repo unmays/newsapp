@@ -8,12 +8,12 @@ import com.khoofiya.realnews.pojos.Article
 
 class AllNewsViewModel(dataManager: DataManager) : BaseViewModel(dataManager = dataManager) {
 
-    private val sourcesRepository = AllNewsRepository(dataManager)
+    private val allNewsRepository = AllNewsRepository(dataManager)
 
     private lateinit var articles: MutableLiveData<List<Article>?>
 
     fun getAllNews(): MutableLiveData<List<Article>?> {
-        articles = sourcesRepository.getAllNews(q = "(agriculture OR agri) AND (technology OR tech)")
+        articles = allNewsRepository.getAllNews(q = "(agriculture OR agri) AND (technology OR tech)")
         return articles
     }
 

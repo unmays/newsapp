@@ -30,8 +30,11 @@ class AllNewsTabFragment : BaseFragment() {
             Observer { articles ->
                 articles?.let {
                     if (allNewsRV.adapter == null) {
-                        allNewsRV.adapter = AllNewsAdapter(it)
-                        allNewsRV.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                        allNewsRV.adapter = AllNewsAdapter(it) {
+
+                        }
+                        allNewsRV.layoutManager =
+                            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
                     } else {
                         (allNewsRV.adapter as AllNewsAdapter).articles = it
                         allNewsRV.adapter?.notifyDataSetChanged()
