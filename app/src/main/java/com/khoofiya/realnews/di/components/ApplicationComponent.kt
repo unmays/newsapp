@@ -4,6 +4,7 @@ import android.app.Application
 import com.khoofiya.realnews.RealNewsApplication
 import com.khoofiya.realnews.base.datamanager.DataManager
 import com.khoofiya.realnews.base.views.BaseActivity
+import com.khoofiya.realnews.base.views.BaseFragment
 import com.khoofiya.realnews.di.modules.ApplicationModule
 import dagger.BindsInstance
 import dagger.Component
@@ -14,10 +15,12 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [AndroidSupportInjectionModule::class, ApplicationModule::class])
 interface ApplicationComponent : AndroidInjector<RealNewsApplication> {
-    
+
     fun inject(application: Application)
 
     fun injectActivity(baseActivity: BaseActivity)
+
+    fun injectFragment(baseFragment: BaseFragment)
 
     @Component.Builder
     interface Builder {

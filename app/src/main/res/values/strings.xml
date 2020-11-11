@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Real News</string>
     <string name="splash_text">Real News</string>
+    <string name="sources_header">Sources</string>
+    <string name="all_news_header">All News</string>
 </resources>

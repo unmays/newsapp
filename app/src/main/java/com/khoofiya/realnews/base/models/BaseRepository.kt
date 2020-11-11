@@ -34,14 +34,4 @@ open class BaseRepository(private val dataManager: DataManager) {
         })
     }
 
-    fun tesAPICall() {
-        executeRequest(mRetrofitController.apis?.getSources(),
-            {
-                Log.d("tesAPICall", "Success Response:\n$it")
-            },
-            {
-                Log.d("tesAPICall", "Error")
-            })
-    }
-
 }

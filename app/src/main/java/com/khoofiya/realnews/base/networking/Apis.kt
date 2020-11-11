@@ -1,5 +1,6 @@
 package com.khoofiya.realnews.base.networking
 
+import com.khoofiya.realnews.pojos.ArticlesResponse
 import com.khoofiya.realnews.pojos.SourcesResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -20,7 +21,7 @@ interface Apis {
         @Query("language") language: String? = null,
         @Query("sortBy") sortBy: String? = null,
         @Query("pageSize") pageSize: Int? = null
-    ): Call<String>
+    ): Call<ArticlesResponse>
 
     @GET("v2/sources")
     fun getSources(

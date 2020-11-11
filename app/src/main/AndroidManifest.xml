@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name="com.khoofiya.realnews.home.views.activities.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".splash.activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -21,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.activities.HomeActivity"/>
     </application>
 
 </manifest>

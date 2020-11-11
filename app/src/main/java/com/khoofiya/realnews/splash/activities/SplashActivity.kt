@@ -3,7 +3,7 @@ package com.khoofiya.realnews.splash.activities
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import com.khoofiya.realnews.home.activities.HomeActivity
+import com.khoofiya.realnews.home.views.activities.HomeActivity
 import com.khoofiya.realnews.R
 import com.khoofiya.realnews.base.views.BaseActivity
 

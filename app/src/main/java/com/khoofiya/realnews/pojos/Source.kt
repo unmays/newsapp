@@ -1,11 +1,13 @@
 package com.khoofiya.realnews.pojos
 
-data class Source(
-    val category: String?,
-    val country: String?,
-    val description: String?,
-    val id: String?,
-    val language: String?,
-    val name: String?,
-    val url: String?
-)
+import io.realm.RealmObject
+
+open class Source(
+    var category: String? = null,
+    var country: String? = null,
+    var description: String? = null,
+    var id: String? = null,
+    var language: String? = null,
+    var name: String? = null,
+    var url: String? = null
+) : RealmObject()
