@@ -34,6 +34,9 @@ class AllNewsAdapter(var articles: List<Article>, val onClick: (article: Article
             articleDesc.text = article.description?.trim()
             articleSourceName.text = article.source?.name?.trim()
             articleAuthor.text = article.author?.trim()
+            setOnClickListener {
+                onClick.invoke(article)
+            }
         }
     }
 

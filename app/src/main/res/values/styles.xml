@@ -36,7 +36,7 @@
     <style name="ListItemTextBaseStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:textColor">@color/textColorDark</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:layout_marginTop">@dimen/half_margin</item>
     </style>
@@ -78,6 +78,31 @@
         <item name="android:textSize">14sp</item>
         <item name="android:maxLines">3</item>
         <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ArticleDetailsTextBaseStyle" parent="ListItemTextBaseStyle">
+        <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="ArticleDetailsTextHeadingStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="ArticleDetailsTextSubHeadingStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ArticleDetailsTextInfoStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/textColorLight</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ArticleDetailsTextContentStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

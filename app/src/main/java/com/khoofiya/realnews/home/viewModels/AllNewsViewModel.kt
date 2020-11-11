@@ -3,7 +3,7 @@ package com.khoofiya.realnews.home.viewModels
 import androidx.lifecycle.MutableLiveData
 import com.khoofiya.realnews.base.datamanager.DataManager
 import com.khoofiya.realnews.base.viewModels.BaseViewModel
-import com.khoofiya.realnews.home.repositories.AllNewsRepository
+import com.khoofiya.realnews.repositories.AllNewsRepository
 import com.khoofiya.realnews.pojos.Article
 
 class AllNewsViewModel(dataManager: DataManager) : BaseViewModel(dataManager = dataManager) {

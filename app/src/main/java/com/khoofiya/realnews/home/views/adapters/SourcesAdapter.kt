@@ -28,8 +28,8 @@ class SourcesAdapter(var sources: List<Source>, val onClick: (source: Source) ->
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val source = sources[position]
         viewHolder.itemView.run {
-            sourceName.text = source.name
-            sourceDescription.text = source.description
+            sourceName.text = source.name?.trim()
+            sourceDescription.text = source.description?.trim()
             setOnClickListener {
                 onClick.invoke(source)
             }

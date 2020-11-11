@@ -5,11 +5,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.khoofiya.realnews.R
 import com.khoofiya.realnews.base.views.BaseActivity
-import com.khoofiya.realnews.home.views.adapters.HomeTabsPagerAdapter
 import com.khoofiya.realnews.sourceheadlines.viewModels.TopHeadlinesViewModel
 import com.khoofiya.realnews.sourceheadlines.views.adapters.TopHeadlinesAdapter
 import com.khoofiya.realnews.utils.EXTRA_PARAMS_SOURCE_ID
-import kotlinx.android.synthetic.main.activity_home.*
+import com.khoofiya.realnews.utils.startArticleDetailsActivity
 import kotlinx.android.synthetic.main.activity_top_headlines.*
 
 class TopHeadlinesActivity : BaseActivity() {
@@ -28,8 +27,8 @@ class TopHeadlinesActivity : BaseActivity() {
             Observer { articles ->
                 articles?.let {
                     if (topHeadlinesRV.adapter == null) {
-                        topHeadlinesRV.adapter = TopHeadlinesAdapter(articles) {
-
+                        topHeadlinesRV.adapter = TopHeadlinesAdapter(articles) { article ->
+                            startArticleDetailsActivity(this, article)
                         }
                         topHeadlinesRV.layoutManager = LinearLayoutManager(
                             this@TopHeadlinesActivity,

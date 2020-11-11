@@ -34,6 +34,9 @@ class TopHeadlinesAdapter(var articles: List<Article>, val onClick: (article: Ar
             articleDesc.text = article.description?.trim()
             articleSourceName.text = article.source?.name?.trim()
             articleAuthor.text = article.author?.trim()
+            setOnClickListener {
+                onClick.invoke(article)
+            }
         }
     }
 

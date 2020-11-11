@@ -1,4 +1,4 @@
-package com.khoofiya.realnews.splash.activities
+package com.khoofiya.realnews.splash.views.activities
 
 import android.content.Intent
 import android.os.Bundle

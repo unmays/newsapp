@@ -1,4 +1,4 @@
-package com.khoofiya.realnews.home.repositories
+package com.khoofiya.realnews.repositories
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

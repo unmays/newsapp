@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.khoofiya.realnews.base.datamanager.DataManager
 import com.khoofiya.realnews.base.viewModels.BaseViewModel
 import com.khoofiya.realnews.pojos.Article
-import com.khoofiya.realnews.sourceheadlines.repositories.TopHeadlinesRepository
+import com.khoofiya.realnews.repositories.TopHeadlinesRepository
 
 class TopHeadlinesViewModel(dataManager: DataManager) : BaseViewModel(dataManager = dataManager) {
 
