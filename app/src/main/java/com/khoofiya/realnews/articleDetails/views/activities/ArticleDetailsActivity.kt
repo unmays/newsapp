@@ -7,6 +7,7 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.TextView
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.text.HtmlCompat
 import com.bumptech.glide.Glide
@@ -38,7 +39,8 @@ class ArticleDetailsActivity : BaseActivity() {
             this@ArticleDetailsActivity.title = source?.name
             Glide.with(this@ArticleDetailsActivity).load(urlToImage).into(articleDetailsImage)
             articleDetailsHeading.text = title
-            articleDetailsSubHeading.text = description
+            articleDetailsSubHeading.text =
+                description?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
             articleDetailsAuthor.text = author
             articleDetailsPublishedAt.text =
                 publishedAt?.let { convertPublishedAtDate(publishedAt = it) }
@@ -49,23 +51,65 @@ class ArticleDetailsActivity : BaseActivity() {
                         content!!,
                         getString(R.string.read_more)
                     ), HtmlCompat.FROM_HTML_MODE_LEGACY
-                );
-                val readMoreClickableSpan =
-                    Spannable.Factory.getInstance().newSpannable(updatedContent)
-                val spanStartIndex =
-                    updatedContent.lastIndexOf("[${getString(R.string.read_more)}]")
-                val spanEndIndex = spanStartIndex + "[${getString(R.string.read_more)}]".length
-                readMoreClickableSpan.setSpan(object : ClickableSpan() {
-                    override fun onClick(view: View) {
-                        val builder = CustomTabsIntent.Builder()
-                        val customTabsIntent = builder.build()
-                        customTabsIntent.launchUrl(this@ArticleDetailsActivity, Uri.parse(url))
-                    }
-                }, spanStartIndex, spanEndIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                articleDetailsContent.text = readMoreClickableSpan
-                articleDetailsContent.movementMethod = LinkMovementMethod.getInstance();
+                )
+                createClickableSpan(
+                    originalText = updatedContent,
+                    spanString = "[${getString(R.string.read_more)}]",
+                    url = url,
+                    backupText = String.format(
+                        getString(R.string.click_here_read_more),
+                        source?.name
+                    ),
+                    backupSpanString = getString(R.string.click_here),
+                    textView = articleDetailsContent
+                )
             } else {
-                articleDetailsContent.text = content
+                createClickableSpan(
+                    originalText = String.format(
+                        getString(R.string.click_here_read_more),
+                        source?.name
+                    ),
+                    spanString = getString(R.string.click_here),
+                    url = url,
+                    textView = articleDetailsContent
+                )
+            }
+        }
+    }
+
+    private fun createClickableSpan(
+        originalText: CharSequence,
+        spanString: String,
+        url: String?,
+        backupText: CharSequence? = null,
+        backupSpanString: String? = null,
+        textView: TextView
+    ) {
+        val spanStartIndex =
+            originalText.lastIndexOf(spanString)
+        val spanEndIndex = spanStartIndex + spanString.length
+        if (spanStartIndex >= 0 && spanEndIndex <= originalText.length) {
+            val readMoreClickableSpan =
+                Spannable.Factory.getInstance().newSpannable(originalText)
+            readMoreClickableSpan.setSpan(object : ClickableSpan() {
+                override fun onClick(view: View) {
+                    val builder = CustomTabsIntent.Builder()
+                    val customTabsIntent = builder.build()
+                    customTabsIntent.launchUrl(this@ArticleDetailsActivity, Uri.parse(url))
+                }
+            }, spanStartIndex, spanEndIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            textView.text = readMoreClickableSpan
+            textView.movementMethod = LinkMovementMethod.getInstance()
+        } else {
+            if (backupText != null && backupSpanString != null) {
+                createClickableSpan(
+                    originalText = backupText,
+                    spanString =  backupSpanString,
+                    url = url,
+                    textView = textView
+                )
+            } else {
+                textView.text = originalText
             }
         }
     }

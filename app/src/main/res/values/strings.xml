@@ -5,4 +5,6 @@
     <string name="all_news_header">All News</string>
     <string name="read_more">Read More</string>
     <string name="headlines">Headlines</string>
+    <string name="click_here_read_more">Click here to read the entire article on %1s.</string>
+    <string name="click_here">Click here</string>
 </resources>
