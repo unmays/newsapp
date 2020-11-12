@@ -34,11 +34,13 @@ android {
             versionCode 1
             versionName "1.0.0"
             signingConfig signingConfigs.playStore
+            resValue "string", "app_name", "Real News"
         }
         dev {
             applicationId "com.khoofiya.dev.realnews"
             versionCode 1
             versionName "1.0.0"
+            resValue "string", "app_name", "Dev Real News"
         }
     }
     buildTypes {
