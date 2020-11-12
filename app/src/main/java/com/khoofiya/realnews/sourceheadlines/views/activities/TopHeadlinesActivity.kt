@@ -8,6 +8,7 @@ import com.khoofiya.realnews.base.views.BaseActivity
 import com.khoofiya.realnews.sourceheadlines.viewModels.TopHeadlinesViewModel
 import com.khoofiya.realnews.sourceheadlines.views.adapters.TopHeadlinesAdapter
 import com.khoofiya.realnews.utils.EXTRA_PARAMS_SOURCE_ID
+import com.khoofiya.realnews.utils.EXTRA_PARAMS_SOURCE_NAME
 import com.khoofiya.realnews.utils.startArticleDetailsActivity
 import kotlinx.android.synthetic.main.activity_top_headlines.*
 
@@ -18,6 +19,7 @@ class TopHeadlinesActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top_headlines)
+        title = intent.extras?.getString(EXTRA_PARAMS_SOURCE_NAME)
         initData()
     }
 

@@ -2,7 +2,7 @@ package com.khoofiya.realnews.utils
 
 import java.text.SimpleDateFormat
 
-val SERVER_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+val SERVER_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
 val CLIENT_DATE_FORMAT = "dd MMM yyyy, HH:mm a"
 
 fun convertPublishedAtDate(publishedAt: String): String {

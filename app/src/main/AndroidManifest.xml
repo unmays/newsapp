@@ -26,10 +26,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".sourceheadlines.views.activities.TopHeadlinesActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".articleDetails.views.activities.ArticleDetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
