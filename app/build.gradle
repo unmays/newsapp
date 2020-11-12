@@ -17,7 +17,28 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        Properties localProperties = new Properties()
+        localProperties.load(project.rootProject.file("local.properties").newDataInputStream())
+        playStore {
+            storeFile = file(localProperties.getProperty("keystoreFilePath"))
+            storePassword = localProperties.getProperty(("storePassword"))
+            keyAlias = localProperties.getProperty(("keyAlias"))
+            keyPassword = localProperties.getProperty(("keyPassword"))
+        }
+    }
+    flavorDimensions ""
+    productFlavors {
+        playStore {
+            versionCode 1
+            versionName "1.0.0"
+            signingConfig signingConfigs.playStore
+        }
+        dev {
+            versionCode 1
+            versionName "1.0.0"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
