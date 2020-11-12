@@ -1,0 +1,108 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="HomeTabHeaderStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">@+id/constraintLayout</item>
+        <item name="layout_constraintLeft_creator">1</item>
+        <item name="layout_constraintTop_creator">1</item>
+    </style>
+
+    <style name="ListItemTextBaseStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textColorDark</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_marginTop">@dimen/half_margin</item>
+    </style>
+
+    <style name="ArticleListItemTextBaseStyle" parent="ListItemTextBaseStyle" />
+
+    <style name="ArticleListItemTitleStyle" parent="ArticleListItemTextBaseStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ArticleListItemDescriptionStyle" parent="ArticleListItemTextBaseStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ArticleListItemFooterStyle" parent="ArticleListItemTextBaseStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TabRecyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="SourceListItemTextBaseStyle" parent="ListItemTextBaseStyle" />
+
+    <style name="SourceListItemNameStyle" parent="SourceListItemTextBaseStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SourceListItemDescStyle" parent="SourceListItemTextBaseStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ArticleDetailsTextBaseStyle" parent="ListItemTextBaseStyle">
+        <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="ArticleDetailsTextHeadingStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="ArticleDetailsTextSubHeadingStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ArticleDetailsTextInfoStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/textColorLight</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ArticleDetailsTextContentStyle" parent="ArticleDetailsTextBaseStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>
