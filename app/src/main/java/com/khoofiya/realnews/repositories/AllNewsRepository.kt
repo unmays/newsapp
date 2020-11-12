@@ -8,7 +8,7 @@ import com.khoofiya.realnews.pojos.Article
 import com.khoofiya.realnews.utils.STATUS_OK
 import io.realm.ImportFlag
 
-class AllNewsRepository(private val dataManager: DataManager) :
+class AllNewsRepository(dataManager: DataManager) :
     BaseRepository(dataManager = dataManager) {
 
     private val articles: MutableLiveData<List<Article>?> = MutableLiveData()
@@ -50,6 +50,43 @@ class AllNewsRepository(private val dataManager: DataManager) :
                 Log.d("tesAPICall", "Error")
             })
         return articles
+    }
+
+    fun getNextPage(
+        page: Int? = 1,
+        q: String? = null,
+        qInTitle: String? = null,
+        sources: String? = null,
+        domains: String? = null,
+        excludeDomains: String? = null,
+        from: String? = null,
+        to: String? = null,
+        language: String? = null,
+        sortBy: String? = null,
+        pageSize: Int? = null
+    ) {
+        executeRequest(mRetrofitController.apis?.getEverything(
+            page = page,
+            q = q,
+            qInTitle = qInTitle,
+            sources = sources,
+            domains = domains,
+            excludeDomains = excludeDomains,
+            from = from,
+            to = to,
+            language = language,
+            sortBy = sortBy,
+            pageSize = pageSize
+        ),
+            { articlesResponse ->
+                if (articlesResponse?.status == STATUS_OK) {
+                    articles.value = articlesResponse.articles?.let { it -> articles.value?.plus(it) }
+                    updateSourcesInLocal(articlesResponse.articles)
+                }
+            },
+            {
+                Log.d("tesAPICall", "Error")
+            })
     }
 
     private fun getArticlesFromLocal() {
