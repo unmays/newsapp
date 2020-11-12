@@ -30,11 +30,13 @@ android {
     flavorDimensions ""
     productFlavors {
         playStore {
+            applicationId "com.khoofiya.realnews"
             versionCode 1
             versionName "1.0.0"
             signingConfig signingConfigs.playStore
         }
         dev {
+            applicationId "com.khoofiya.dev.realnews"
             versionCode 1
             versionName "1.0.0"
         }
